@@ -1,2 +1,17 @@
 <h1>Cocktail Page</h1>
 <h2> <%= @cocktail.name %> </h2>
+
+<div class="cocktail-header">
+  <div class="cocktail-menu">
+    <div id="cocktail-ingredients">
+      <% @cocktail.ingredients.each do |ingredient| %>
+        <div class="ingredient"><%= ingredient.name %></div>
+      <% end %>
+    </div>
+    <%= link_to "Add ingredients", new_cocktail_dose_path(@cocktail) %>
+  </div>
+</div>
+
+
+<%= link_to "Cocktails", cocktails_path %>
+

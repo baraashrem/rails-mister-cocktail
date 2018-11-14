@@ -5,6 +5,10 @@ class Ingredient < ApplicationRecord
 
   validates :name, uniqueness: true, presence: true
 
+  def self.list_names
+    pluck(:name).sort
+  end
+
   private
 
   def check_for_cocktails
