@@ -1,13 +1,47 @@
-<h1>Our Special Cocktails</h1>
-<p>please see our cocktails</p>
-<ul>
-  <% @cocktails.each do |c| %>
-  <li>
-    <%= c.name %>
-    <%= link_to "Show Details", cocktail_path(c) %>
-    <%= link_to "Add a Dose", new_cocktail_dose_path(c) %>
-    <%= link_to "Delete", c, method: :delete %>
-  </li>
-  <% end %>
-</ul>
-<%= link_to "Add a new cocktail", new_cocktail_path %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('../../assets/cocktail_banner.png');">
+  <div class="banner-content">
+    <div id="header">
+    <h1>Le Wagon Cocktails</h1>
+    <p>Experience the art of mixing</p>
+    <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-primary" %>
+    </div>
+  <div class="container">
+  <div class="row">
+    <% @cocktails.each do |c| %>
+    <div class="col-xs-12 col-sm-4">
+
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= c.photo %>');">
+        <div class="card-description">
+         <h2> <%= c.name %> </h2>
+         <p>
+          <%= link_to "Edit", edit_cocktail_path(c) %>
+          <%= link_to "Add a Dose", new_cocktail_dose_path(c) %>
+          <%= link_to "Delete", c, method: :delete, data: { confirm: "Are you sure?" } %>
+         </p>
+       </div>
+
+        <div class="card-details"> <%= link_to "Show Details", cocktail_path(c) %> </div>
+        <!-- <a class="card-link" href="<%= cocktail_path(c) %>" ></a> -->
+      </div>
+
+    </div>
+    <% end %>
+
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+<!-- <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%=@cocktails.first.photo%>');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Le Wagon Shanghai</h2>
+    <p>Very cool city, the best</p>
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
+</div> -->
+

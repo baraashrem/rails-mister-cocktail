@@ -1,6 +1,6 @@
 <h1>Cocktail Page</h1>
 <h2> <%= @cocktail.name %> </h2>
-
+<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
 <div class="cocktail-header">
   <div class="cocktail-menu">
     <div id="cocktail-ingredients">
@@ -9,7 +9,7 @@
           <%= dose.ingredient.name%>
           <span><%= dose.description %></span>
           <span>
-            <%= link_to "Delete Dose", dose_path(dose), method: :delete %>
+            <%= link_to "Delete Dose", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"} %>
           </span>
         </div>
       <% end %>
