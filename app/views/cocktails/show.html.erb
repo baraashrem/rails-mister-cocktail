@@ -4,11 +4,17 @@
 <div class="cocktail-header">
   <div class="cocktail-menu">
     <div id="cocktail-ingredients">
-      <% @cocktail.ingredients.each do |ingredient| %>
-        <div class="ingredient"><%= ingredient.name %></div>
+      <% @cocktail.doses.each do |dose| %>
+        <div class="ingredient">
+          <%= dose.ingredient.name%>
+          <span><%= dose.description %></span>
+          <span>
+            <%= link_to "Delete Dose", dose_path(dose), method: :delete %>
+          </span>
+        </div>
       <% end %>
     </div>
-    <%= link_to "Add ingredients", new_cocktail_dose_path(@cocktail) %>
+    <%= link_to "Add a Dose", new_cocktail_dose_path(@cocktail) %>
   </div>
 </div>
 
