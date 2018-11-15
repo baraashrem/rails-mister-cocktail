@@ -6,6 +6,7 @@
     <%= c.name %>
     <%= link_to "Show Details", cocktail_path(c) %>
     <%= link_to "Add a Dose", new_cocktail_dose_path(c) %>
+    <%= link_to "Delete", c, method: :delete %>
   </li>
   <% end %>
 </ul>
